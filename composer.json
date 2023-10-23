@@ -1,0 +1,19 @@
+{
+    "name": "evoi/real-hosting-bot",
+    "description": "Bot made for RealHosting",
+    "autoload": {
+        "psr-4": {
+            "Evoi\\RealHostingBot\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mikael Oliveira",
+            "email": "58037508+LordBluue3@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "team-reflex/discord-php": "^7.3",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
