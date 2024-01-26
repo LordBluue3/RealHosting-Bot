@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__.'/../vendor/autoload.php';
-include __DIR__.'/events/DiscordEvent.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/events/DiscordEvent.php';
 
 use Discord\Discord;
 use Discord\WebSockets\Intents;
@@ -11,7 +11,7 @@ $dotenv->load();
 $token = $_ENV['TOKEN'];
 
 $discord = new Discord([
-    'token' =>  $token,
+    'token' => $token,
     'intents' => Intents::getDefaultIntents()
 ]);
 
