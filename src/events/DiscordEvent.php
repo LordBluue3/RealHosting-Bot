@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . '/../traits/MessageContent.php';
+require __DIR__ . '/../dao/ConnectionDAO.php';
 
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
@@ -27,7 +28,7 @@ class DiscordEvent
     {
         $discord->on(Event::MESSAGE_CREATE, function (Message $message, Discord $discord) {
             if (!$message->author->bot) {
-                static::exist($message, 'URLS', 'Você não pode divulgar aqui! baka :3');
+                static::exist($message, 'DISCORD', 'Você não pode enviar convites de outros servidores aqui :(');
                 static::exist($message, 'OFFENSE', 'Você não pode falar esse tipo de coisa aqui no chat :O');
             }
         });
