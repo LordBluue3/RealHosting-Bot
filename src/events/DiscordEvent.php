@@ -16,17 +16,18 @@ class DiscordEvent
     /**
      * Verify all events 
      */
-    public static function verifyEvent($discord)
+    public static function verifyEvent($discord): void
     {
-        static::verifyContentMessage($discord);
+        static::verifyContentMessage($discord, Event::MESSAGE_CREATE);
+        static::verifyContentMessage($discord, Event::MESSAGE_UPDATE);
     }
 
     /**
      * Alert the user if in your message has a url
      */
-    protected static function verifyContentMessage($discord)
+    protected static function verifyContentMessage($discord, $event)
     {
-        $discord->on(Event::MESSAGE_CREATE, function (Message $message, Discord $discord) {
+        $discord->on($event, function (Message $message, Discord $discord): void {
             if (!$message->author->bot) {
                 static::exist($message, 'DISCORD', 'Você não pode enviar convites de outros servidores aqui :(');
                 static::exist($message, 'OFFENSE', 'Você não pode falar esse tipo de coisa aqui no chat :O');
@@ -37,7 +38,7 @@ class DiscordEvent
     /**
      * Verify if exist content of .env in content
      */
-    protected static function exist($message, $env, $alert): void
+    protected static function exist($message, $env, string $alert): void
     {
         $instance = new self();
         $result = $instance->verifyContent($message, $env);
