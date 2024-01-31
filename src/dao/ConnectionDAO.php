@@ -6,7 +6,7 @@ class ConnectionDAO
 {
     private $database;
 
-    private $connection;
+    private ?\PDO $connection = null;
 
     public function __construct()
     {
@@ -21,7 +21,7 @@ class ConnectionDAO
         }
     }
 
-    private function configDatabase()
+    private function configDatabase(): void
     {
         try{
             $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../..');

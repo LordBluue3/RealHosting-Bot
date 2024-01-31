@@ -15,7 +15,7 @@ $discord = new Discord([
     'intents' => Intents::getDefaultIntents()
 ]);
 
-$discord->on('ready', function (Discord $discord) {
+$discord->on('ready', function (Discord $discord): void {
     echo "Bot is ready!", PHP_EOL;
 
     DiscordEvent::verifyEvent($discord);
