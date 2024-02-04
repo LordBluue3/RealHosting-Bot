@@ -1,6 +1,10 @@
 <?php
 
-require __DIR__ . '/../ConnectionDAO.php';
+namespace database\migrations;
+
+require_once __DIR__.'/../dao/ConnectionDAO.php';
+
+use database\dao\ConnectionDAO;
 
 return new class {
 

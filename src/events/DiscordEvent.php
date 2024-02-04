@@ -2,7 +2,8 @@
 
 require __DIR__ . '/../../vendor/autoload.php';
 require __DIR__ . '/../traits/MessageContent.php';
-require __DIR__ . '/../dao/ConnectionDAO.php';
+require __DIR__ . '/../database/dao/ConnectionDAO.php';
+require __DIR__ . '/../database/dao/UserDAO.php';
 
 use Discord\Builders\MessageBuilder;
 use Discord\Discord;
@@ -47,6 +48,8 @@ class DiscordEvent
             $channel = $message->channel;
             $message->delete();
             $channel->sendMessage(MessageBuilder::new()->setContent($message->author . $alert));
+
+            //UserDAO::store($message->author->id, $message->author->username);
         }
     }
 
