@@ -1,3 +1,2 @@
 .env
 /vendor/
-/src/dao/database/*.sqlite
