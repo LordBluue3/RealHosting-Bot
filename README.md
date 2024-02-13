@@ -3,7 +3,7 @@
 
 <h1>RealHosting BOT</h1>
 
-Discord BOT made in PHP
+Discord BOT made in PHP, to moderate your discord server
 
 
 <h1>install PHP dependencies</h1>
